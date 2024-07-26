@@ -20,10 +20,10 @@ const Navbar = () => {
                   Home
                 </li>
                 <li className='hidden md:block text-white text-2xl font-bold ml-2'>
-                  Home
+                  Contact
                 </li>
                 <li className='hidden md:block text-white text-2xl font-bold ml-2'>
-                  Home
+                  About
                 </li>
               </div>
             </div>
