@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from "./components/Hero";
 import HomeCards from './components/HomeCards';
 import JobsListings from './components/JobsListings';
+import ViewAllJobs from './components/ViewAllJobs';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <HomeCards />
       <JobsListings />
+      <ViewAllJobs />
     </>
   )
 }
