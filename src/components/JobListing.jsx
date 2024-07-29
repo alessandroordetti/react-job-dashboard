@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaMapMarker } from 'react-icons/fa'
 
 const JobListing = ({ job }) => {
     const [showFullDescription, setShowFullDescription] = useState(false);
@@ -23,6 +24,7 @@ const JobListing = ({ job }) => {
                     className='text-indigo-500 mb-5 hover:text-indigo-600'
                     onClick={() => setShowFullDescription((prevState) => !prevState)}
                 >
+
                     {showFullDescription ? 'Less' : 'More'}
                 </button>
 
@@ -33,6 +35,7 @@ const JobListing = ({ job }) => {
 
                 <div className='flex flex-col lg:flex-row justify-between mb-4'>
                     <div className='text-orange-700 mb-3'>
+                        <FaMapMarker className='text-red-500 inline me-2' />
                         {job.location}
                     </div>
                 </div>
