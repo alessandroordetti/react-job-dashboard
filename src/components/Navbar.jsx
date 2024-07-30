@@ -24,7 +24,7 @@ const Navbar = () => {
                 <NavLink to='/jobs' className={linkClass}>
                   Jobs
                 </NavLink>
-                <NavLink to='/add-job' className={linkClass}>
+                <NavLink to='/add-job' className={`hidden md:block rounded-full px-5 py-2 text-white text-2xl ml-2 bg-black hover:bg-sky-700' : 'hidden md:block rounded-full px-5 py-2 text-white text-2xl ml-2 hover:bg-sky-700` }>
                   Add Job
                 </NavLink>
               </div>
