@@ -10,8 +10,10 @@ const JobsListings = ({ isHome = false }) => {
 
     useEffect(() => {
         const fetchJobs = async () => {
+
+            const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
             try {
-                const res = await fetch("http://localhost:8000/jobs");
+                const res = await fetch(apiUrl);
                 const data = await res.json();
                 setTimeout(() => {
                     let randNum = Math.floor(Math.random() * data.length); // Corretto l'uso di Math.random()
@@ -19,6 +21,7 @@ const JobsListings = ({ isHome = false }) => {
                     setJobs(jobListings);
                     setLoading(false); // Sposta qui il setLoading a false
                 }, 1000);
+
             } catch (error) {
                 console.log(error);
                 setLoading(false); // Anche in caso di errore, impostare loading a false
