@@ -13,14 +13,15 @@ const JobsListings = ({ isHome = false }) => {
             try {
                 const res = await fetch("http://localhost:8000/jobs");
                 const data = await res.json();
-
-                let randNum = Math.floor(Math.random(0, data.length) * 10) + 1;
-                let jobListings = isHome ? data.slice(0, randNum) : jobs;
-                setJobs(jobListings)
+                setTimeout(() => {
+                    let randNum = Math.floor(Math.random() * data.length); // Corretto l'uso di Math.random()
+                    let jobListings = isHome ? data.slice(0, randNum) : data;
+                    setJobs(jobListings);
+                    setLoading(false); // Sposta qui il setLoading a false
+                }, 1000);
             } catch (error) {
                 console.log(error);
-            } finally {
-                setLoading(false)
+                setLoading(false); // Anche in caso di errore, impostare loading a false
             }
         };
 
@@ -34,17 +35,16 @@ const JobsListings = ({ isHome = false }) => {
                     Browse Jobs
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {loading ? (<h2>Loading...</h2>) : (
-                        <>
-                            {jobs.map((job) => (
-                                <JobListing key={job.id} job={job} />
-                            ))}
-                        </>
-                    )}
+                {loading ? (<Spinner loading={loading} />) : (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {jobs.map((job) => (
+                            <JobListing key={job.id} job={job} />
+                        ))}
+                    </div>
+                )}
 
-                </div>
             </div>
+
         </section>
     )
 }

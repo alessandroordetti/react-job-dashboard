@@ -1,4 +1,4 @@
-import ClipLoader from 'react-spinners/DotLoader';
+import DotLoader from 'react-spinners/DotLoader';
 
 const Spinner = ({ loading }) => {
 
@@ -6,7 +6,7 @@ const Spinner = ({ loading }) => {
         display: 'block',
         margin: '100px auto'
     }
-    
+
     return (
         <DotLoader
             color='#4338ca'
