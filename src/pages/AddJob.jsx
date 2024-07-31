@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast, Bounce } from 'react-toastify';
 
 const AddJob = ({ addJobSubmit }) => {
   const [title, setTitle] = useState('');
@@ -33,6 +34,18 @@ const AddJob = ({ addJobSubmit }) => {
     }
 
     addJobSubmit(newJob);
+
+    toast.success('Job Added', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+      });
 
     return navigate('/jobs')
   }
